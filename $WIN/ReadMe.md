@@ -1,20 +1,52 @@
 # Setup
 
-    1 Flash Win11 ISO
-    2 Install in offline mode with oobe\bypassnro command
-    3 Update system and then all apps
-    4 Purge unwanted apps, start menu, taskbar & app execution aliases
-    5 Configure Browser
-    6 Configure Whole System from Settings App
-    7 Restart
+    Flash Win11 ISO & oobe\bypassnro
+    Update System
 
-# Configurations
+    Update Apps through Store
 
-    1 Install scoop.sh package manager for compilers and gnu utilities
+    Debloat Windows
 
-    2 Install git-scm & configure GCM and global user
-    3 Install wsl2 and configure it with Ubuntu
-    4 Install Docker Desktop & configure it with wsl2
-    5 Install VSCode, Idea Ultimate, Postman, Discord, MongoDBCompass
+        Apps
+        Start Menu
+        Taskbar
+        App Execution Aliases
 
-    6 Using scoop install nodejs, oraclejdk, go, python, mingw, rust
+    Configure Browser
+    
+# Apps
+
+    Git
+    
+    VSCode
+    IntelliJ IDEA Ultimate Edition
+    Postman
+    MongoDBCompass
+    
+    Discord
+    Spotify
+
+    Oracle JDK
+    NodeJS
+    Go
+    Python
+    MinGW
+    Rust
+
+# Configuration
+
+    Environment Variables For All Compilers
+
+    WSL, Ubuntu & Docker Desktop
+
+    Windows Terminal
+
+        Ubuntu - zshrc
+        Git Bash - bashrc
+        Theme
+        JetBrains Mono Nerd Font
+
+    IDEs and Code Editors
+    Discord & Spotify
+
+    Start Menu

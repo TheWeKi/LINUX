@@ -1,2 +1,4 @@
-.git
 $0
+# $0 contains ISO and VIRTUAL_BOX directories
+# ISO contains nix-gnome, nix-minimal & arch iso files
+# VIRTUAL_BOX contains VirtualBox, VirtualBox_Extension_Pack & VC_redist.x64 files
