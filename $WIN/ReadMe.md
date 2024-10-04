@@ -35,6 +35,8 @@
 
 # Configuration
 
+    Settings
+
     Environment Variables For All Compilers
 
     WSL, Ubuntu & Docker Desktop
