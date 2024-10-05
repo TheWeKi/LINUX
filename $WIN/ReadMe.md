@@ -55,9 +55,7 @@
 
 # C:\Compilers
 
-## Oracle JDK
-
-    https://www.oracle.com/in/java/technologies/downloads/
+## [Oracle JDK](https://www.oracle.com/in/java/technologies/downloads/)
 
     JAVA_HOME -> C:\Compilers\JDK
 
@@ -67,9 +65,7 @@
     
     Path -> %JAVA_HOME%\bin
 
-## NodeJS
-
-    https://nodejs.org/en/download/prebuilt-binaries/current
+## [NodeJS](https://nodejs.org/en/download/prebuilt-binaries/current)
 
     NODE_HOME -> C:\Compilers\Node
 
@@ -79,10 +75,7 @@
     
     Path -> %NODE_HOME%
 
-## Go
-
-    https://go.dev/dl/
-
+## [Go](https://go.dev/dl/)
     GO_HOME -> C:\Compilers\Go
 
     1 Download amd64 Archive File
@@ -91,9 +84,7 @@
     
     Path -> %GO_HOME%\bin
 
-## Python
-
-    https://www.python.org/downloads/windows/
+## [Python](https://www.python.org/downloads/windows/)
 
     PYTHON_HOME -> C:\Compilers\Python
 
@@ -103,9 +94,7 @@
     
     Path -> %PYTHON_HOME%
 
-## MinGW
-
-    https://github.com/niXman/mingw-builds-binaries/releases
+## [MinGW](https://github.com/niXman/mingw-builds-binaries/releases)
 
     MINGW_HOME -> C:\Compilers\MinGW
 
@@ -116,16 +105,14 @@
     
     Path -> %MINGW_HOME%\bin
 
-## Rust
-
-    https://www.rust-lang.org/tools/install
+## [Rust](https://www.rust-lang.org/tools/install)
 
     RUSTUP_HOME -> C:\Compilers\Rust\.rustup
     CARGO_HOME -> C:\Compilers\Rust\.cargo
 
     1 Download 64bit rustup-init.exe file
     2 Make Sure RUSTUP_HOME & CARGO_HOME is set already
-    3 run rustup-init.exe file
+    3 Run rustup-init.exe file
     4 Choose Below Options:
         ->  Don't install the prerequisites (if you're targeting the GNU ABI)
         ->  Customize Installation
@@ -137,9 +124,7 @@
     
     Path -> %CARGO_HOME%\bin
 
-## Neovim
-
-    https://github.com/neovim/neovim/releases
+## [Neovim](https://github.com/neovim/neovim/releases)
 
     NEOVIM_HOME -> C:\Compilers\Neovim
 
@@ -149,21 +134,15 @@
 
     Path -> %NEOVIM_HOME%\bin
 
-    NvChad 
-    
-        https://nvchad.com/docs/quickstart/install/#install
-        termopen doesn't work with Git Bash
+    NvChad - Open in CMD for IDE
 
-    Always open nvim in Command Prompt
-
-# Scoop - Windows Package Manager
-
-    https://scoop.sh/
+# [Scoop](https://scoop.sh/) - Windows Package Manager
 
     Open a PowerShell terminal (version 5.1 or later) and from the PS C:\> prompt, run:
 
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression~
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+
+`Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression`
 
     Manage packages - scoop
     Search packages - scoop.sh
@@ -172,13 +151,13 @@
 
 ## Compilers Using Scoop
 
-    Oracle JDK -> scoop install java/oraclejdk
-    NodeJS -> scoop install main/nodejs
-    Go -> scoop install main/go
-    Python -> scoop install main/python
-    MinGW -> scoop install main/mingw
-    Rust -> scoop install main/rustup-gnu
-    Neovim -> scoop install main/neovim
+Oracle JDK -> `scoop install java/oraclejdk` <br>
+NodeJS -> `scoop install main/nodejs` <br>
+Go -> `scoop install main/go` <br>
+Python -> `scoop install main/python` <br>
+MinGW -> `scoop install main/mingw` <br>
+Rust -> `scoop install main/rustup-gnu` <br>
+Neovim -> `scoop install main/neovim` <br>
 
 ## Uninstall Scoop
 
