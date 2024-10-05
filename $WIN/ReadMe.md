@@ -134,33 +134,46 @@
 
     Path -> %NEOVIM_HOME%\bin
 
-    NvChad - Open in CMD for IDE
+[NvChad](https://nvchad.com/docs/quickstart/install/) - Open nvim in CMD for IDE
 
 # [Scoop](https://scoop.sh/) - Windows Package Manager
 
+## Install Scoop
+
     Open a PowerShell terminal (version 5.1 or later) and from the PS C:\> prompt, run:
 
-`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
-
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` <br>
 `Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression`
 
-    Manage packages - scoop
-    Search packages - scoop.sh
+## Some Scoop Essential Buckets
 
-    Always add respective Bucket for Package
+`main`
+`extras`
+`java`
 
-## Compilers Using Scoop
+## Some Scoop Packages
 
-Oracle JDK -> `scoop install java/oraclejdk` <br>
-NodeJS -> `scoop install main/nodejs` <br>
-Go -> `scoop install main/go` <br>
-Python -> `scoop install main/python` <br>
-MinGW -> `scoop install main/mingw` <br>
-Rust -> `scoop install main/rustup-gnu` <br>
-Neovim -> `scoop install main/neovim` <br>
+`main/git` <br>
+
+`java/oraclejdk`
+`main/nodejs`
+`main/go`
+`main/python`
+`main/mingw`
+`main/rustup-gnu`
+`main/neovim` <br>
+
+`extras/vscode`
+`extras/idea-ultimate` <br>
+
+`extras/mongodb-compass`
+`extras/postman` <br>
+
+`extras/spotify`
+`extras/discord` <br>
 
 ## Uninstall Scoop
 
-    scoop uninstall scoop
-    Delete ~/scoop directory
+`scoop uninstall scoop` <br>
+`rm -r ~/scoop`
 
