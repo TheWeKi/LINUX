@@ -16,6 +16,6 @@ systemctl enable avahi-daemon.socket
 sleep 2
 
 # git github-cli
-# nodejs npm jdk-openjdk docker docker-compose go visual-studio-code-bin postman-bin spotify discord google-chronme intellij-idea-ultimate-edition
+# nodejs npm jdk-openjdk docker docker-compose go visual-studio-code-bin postman-bin spotify discord google-chrome intellij-idea-ultimate-edition
 # yaru-gnome-shell-theme yaru-gtk-theme yaru-icon-theme extension-manager
 # kstatusappindicatornotifier userthemes dashtodock blurmyshell clipboardindicator

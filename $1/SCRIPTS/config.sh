@@ -4,6 +4,7 @@ keyboardlayout="us"
 zoneinfo="Asia/Kolkata"
 hostname="archlinux"
 username="weki"
+password="root"
 
 ln -sf /usr/share/zoneinfo/$zoneinfo /etc/localtime
 hwclock --systohc
@@ -14,7 +15,7 @@ pacman -Syy
 
 # Mirror Selection
 pacman --noconfirm -S reflector
-reflector -c "India" -p https -a 7 --sort rate --save /etc/pacman.d/mirrorlist
+reflector -c India -p https -l 5 --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syy
 
 #chaotic-aur setup
@@ -43,12 +44,11 @@ echo "127.0.1.1 $hostname.localdomain $hostname" >> /etc/hosts
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
-echo "Set Root Password"
-passwd
+# Set Root and User Password
+echo "root:$password" | chpasswd
 
 useradd -m $username
-echo "Enter User Password: "
-passwd $username
+echo "$username:$password" | chpasswd
 
 # Start Services
 systemctl enable NetworkManager.service
