@@ -14,13 +14,3 @@ systemctl enable cups.socket
 systemctl enable avahi-daemon.socket
 
 sleep 2
-
-pacman --noconfirm -S git github-cli neovim gdb jdk-openjdk nodejs npm python go rustup docker docker-compose
-pacman --noconfirm -S visual-studio-code-bin postman-bin mongodb-compass vesktop spotify vlc google-chrome
-
-sleep 1
-
-systemctl enable docker.service
-usermod -aG docker "$USER"
-
-sleep 2

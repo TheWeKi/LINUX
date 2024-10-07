@@ -7,7 +7,6 @@
 # Make Automation For Disk Selection, Format and SELF PARTITION - EFI, SWAP, ROOT
 # cfdisk /dev/$DISK - GPT - EFI, SWAP, ROOT
 
-
 ####################
 ### INSTALLATION ###
 ####################
@@ -78,7 +77,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 mkdir /mnt/archinstall
 
 # Post Installation Scripts
-curl -o /mnt/archinstall/config.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/scripts/config.sh
+curl -o /mnt/archinstall/config.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/install/config.sh
 chmod +x /mnt/archinstall/config.sh
 
 # Chroot and Execute Post Installation Scripts

@@ -54,6 +54,10 @@ echo "root:$password" | chpasswd
 useradd -m $username
 echo "$username:$password" | chpasswd
 
+# Enable Sudoers permission for wheel group and Add User to wheel group
+sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+usermod -aG wheel $username
+
 # Start Services
 systemctl enable NetworkManager.service
 systemctl enable ModemManager.service
@@ -71,6 +75,3 @@ systemctl enable plocate-updatedb.timer
 sed -i 's/BINARIES=()/BINARIES=(btrfs)/g' /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
-# Enable Sudoers permission for wheel group and Add User to wheel group
-sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
-usermod -aG wheel $username
