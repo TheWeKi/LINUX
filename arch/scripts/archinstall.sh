@@ -72,11 +72,18 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # # # # # # # # # # #
 
 mkdir /mnt/archinstall
-cp config.sh /mnt/archinstall
-cp gnome.sh /mnt/archinstall
-# cp hyprland.sh /mnt/archinstall
+
+# Config Script
+curl -o /mnt/archinstall/config.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/scripts/config.sh
+chmod +x /mnt/archinstall/config.sh
 
 arch-chroot /mnt ./archinstall/config.sh
+
+# cp config.sh /mnt/archinstall
+# cp gnome.sh /mnt/archinstall
+# cp hyprland.sh /mnt/archinstall
+
+# arch-chroot /mnt ./archinstall/config.sh
 # arch-chroot /mnt ./archinstall/gnome.sh
 # arch-chroot /mnt ./archinstall/hyprland.sh
 
