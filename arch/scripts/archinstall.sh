@@ -5,9 +5,10 @@
 ## # # # ## # # # # ##
 
 # Make Automation For Disk Selection, Format and SELF PARTITION - EFI, SWAP, ROOT
+# cfdisk /dev/$DISK - GPT - EFI, SWAP, ROOT
 
 loadkeys us
-setfont ter-132b
+# setfont ter-132b
 
 timedatectl set-timezone Asia/Kolkata
 timedatectl set-ntp true
@@ -57,7 +58,7 @@ swapon /dev/$SWAP
 
 # Pacman Conf
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-reflector -c "India" -p https -a 4 --sort rate --save /etc/pacman.d/mirrorlist
+reflector -c India -p https -l 5 --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syy
 
 # BASE LINUX PACKAGES - amd-ucode if using amd processor

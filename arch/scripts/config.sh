@@ -6,6 +6,7 @@ hostname="archlinux"
 username="weki"
 password="root"
 
+# Set Timezone
 ln -sf /usr/share/zoneinfo/$zoneinfo /etc/localtime
 hwclock --systohc
 
@@ -26,21 +27,24 @@ pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorl
 echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | tee -a /etc/pacman.conf
 pacman -Syy
 
-# Other Packages
+# Essential Packages
 pacman --noconfirm -S grub efibootmgr grub-btrfs wireplumber pipewire pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack gst-plugin-pipewire bluez bluez-utils openssh thermald firewalld plocate
 
+# Locale, Keyboard
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 
 echo "KEYMAP=$keyboardlayout" >> /etc/vconsole.conf
 
+# Hostname, Hosts
 echo "$hostname" >> /etc/hostname
 
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 $hostname.localdomain $hostname" >> /etc/hosts
 
+# Grub Installation
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
