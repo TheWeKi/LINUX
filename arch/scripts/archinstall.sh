@@ -76,7 +76,7 @@ cp gnome.sh /mnt/archinstall
 # cp hyprland.sh /mnt/archinstall
 
 arch-chroot /mnt ./archinstall/config.sh
-arch-chroot /mnt ./archinstall/gnome.sh
+# arch-chroot /mnt ./archinstall/gnome.sh
 # arch-chroot /mnt ./archinstall/hyprland.sh
 
 rm -rf /mnt/archinstall
