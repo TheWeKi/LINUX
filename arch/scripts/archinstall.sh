@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
-## # # # ## # # # # ##
-## PRE INSTALLATION ##
-## # # # ## # # # # ##
+########################
+### PRE INSTALLATION ###
+########################
 
 # Make Automation For Disk Selection, Format and SELF PARTITION - EFI, SWAP, ROOT
 # cfdisk /dev/$DISK - GPT - EFI, SWAP, ROOT
 
+
+####################
+### INSTALLATION ###
+####################
+
 loadkeys us
-# setfont ter-132b
 
 timedatectl set-timezone Asia/Kolkata
 timedatectl set-ntp true
@@ -67,26 +71,20 @@ pacstrap -K /mnt base base-devel linux linux-firmware linux-headers pacman-contr
 # Generating FSTAB
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# # # # # # # # # # #
-# # CONFIGURATION # #
-# # # # # # # # # # #
+#####################
+### CONFIGURATION ###
+#####################
 
 mkdir /mnt/archinstall
 
-# Config Script
+# Post Installation Scripts
 curl -o /mnt/archinstall/config.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/scripts/config.sh
 chmod +x /mnt/archinstall/config.sh
 
+# Chroot and Execute Post Installation Scripts
 arch-chroot /mnt ./archinstall/config.sh
 
-# cp config.sh /mnt/archinstall
-# cp gnome.sh /mnt/archinstall
-# cp hyprland.sh /mnt/archinstall
-
-# arch-chroot /mnt ./archinstall/config.sh
-# arch-chroot /mnt ./archinstall/gnome.sh
-# arch-chroot /mnt ./archinstall/hyprland.sh
-
+# Cleanup & Unmount
 rm -rf /mnt/archinstall
 umount -R /mnt
 

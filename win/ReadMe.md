@@ -25,6 +25,7 @@
     
     Discord
     Spotify
+    VLC
 
     Oracle JDK
     NodeJS
@@ -47,9 +48,6 @@
         Git Bash - .bashrc
         Theme - Catppuccin Mocha
         JetBrainsMono Nerd Font
-
-    IDEs and Code Editors
-    Discord & Spotify
 
     Start Menu
 
@@ -153,8 +151,6 @@ Open a PowerShell terminal (version 5.1 or later) and from the PS C:\> prompt, r
 
 ## Some Scoop Packages
 
-`main/git` <br>
-
 `java/oraclejdk`
 `main/nodejs`
 `main/go`
@@ -170,7 +166,8 @@ Open a PowerShell terminal (version 5.1 or later) and from the PS C:\> prompt, r
 `extras/postman` <br>
 
 `extras/spotify`
-`extras/discord` <br>
+`extras/discord` 
+`extras/vlc` <br>
 
 ## Uninstall Scoop
 

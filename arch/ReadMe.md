@@ -1,15 +1,34 @@
 # Setup
 
-    1 Create bootable drive with arch iso
-    2 Enter the installation media
-    3 Create Partitions
-        3.1 BOOT    1G
-        3.2 SWAP    16G
-        3.3 ROOT    REMAINING
-    4 Install git and Clone the repository
-    5 In repo, Make all scripts executable
-    6 run ./archinstall.sh
 
-# Configurations
+## Pre Install
 
-## Bootloader
+    setfont ter-132b # HiDPI Display
+
+    iwctl --passphrase [password] station wlan0 connect [network]
+
+    cfdisk /dev/DISK 
+        GPT
+        
+        EFI   1GB
+        SWAP  16GB
+        ROOT  REMAINING
+
+## Install
+
+    bash <(curl -s https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/scripts/archinstall.sh)
+
+## Gnome
+
+    curl -o gnome.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/scripts/gnome.sh
+
+    chmod +x gnome.sh
+
+    sudo ./gnome.sh
+
+## Post Install
+
+    gh auth login
+    Gnome Extensions - kstatusappindicatornotifier userthemes dashtodock blurmyshell clipboardindicator
+
+    Idea Ultimate using Official Tarball
