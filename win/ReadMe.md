@@ -41,6 +41,7 @@
     Settings
 
     WSL, Ubuntu & Docker Desktop
+    ArchWSL
 
     Windows Terminal
 
@@ -132,6 +133,14 @@
 
     Path -> %NEOVIM_HOME%\bin
 
+## Arch WSL
+### [ArchWSL](https://github.com/yuk7/ArchWSL/releases)
+### [ArchWSL Docs](https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/)
+
+    1 Download Latest Arch.zip file
+    2 Follow Docs for Setup
+    
+
 [NvChad](https://nvchad.com/docs/quickstart/install/) - Open nvim in CMD for IDE
 
 # [Scoop](https://scoop.sh/) - Windows Package Manager
@@ -168,6 +177,8 @@ Open a PowerShell terminal (version 5.1 or later) and from the PS C:\> prompt, r
 `extras/spotify`
 `extras/discord` 
 `extras/vlc` <br>
+
+`extras/archwsl` <br>
 
 ## Uninstall Scoop
 
