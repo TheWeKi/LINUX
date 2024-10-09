@@ -18,6 +18,9 @@ lsblk
 
 read -p "DISK   |   nvme0n1 / sda / vda :   " DISK
 
+# Wipe Disk and Partition Table
+sgdisk --zap-all /dev/$DISK
+
 {
     echo "label: gpt"
 
