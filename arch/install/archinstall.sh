@@ -4,32 +4,49 @@
 ### PRE INSTALLATION ###
 ########################
 
-# Make Automation For Disk Selection, Format and SELF PARTITION - EFI, SWAP, ROOT
-# cfdisk /dev/$DISK - GPT - EFI, SWAP, ROOT
-
-####################
-### INSTALLATION ###
-####################
-
 loadkeys us
+
+read -p "Are You On HiDPI Monitor | (y / n) :    " FONT_SIZE
+
+if [ $FONT_SIZE == "y" ]; then
+    setfont ter-132n
+fi
 
 timedatectl set-timezone Asia/Kolkata
 timedatectl set-ntp true
 
-# READ Partitions Here For EFI, SWAP, ROOT
+#########################
+### DISK PARTITIONING ###
+#########################
+
+# Create GPT Partition Table & Partitions
 lsblk
 
-read -p "EFI Partition   |  nvme0n1p1 / sda1 / vda1 :   " EFI
-read -p "SWAP Partition  |  nvme0n1p2 / sda2 / vda2 :   " SWAP
-read -p "Root Partition  |  nvme0n1p3 / sda3 / vda3 :   " ROOT
+read -p "DISK   |   nvme0n1 / sda / vda :   " DISK
+read -p "SWAP SIZE  |   4 - 16 :   " SWAP_SIZE
+
+{
+    echo "label: gpt"
+
+    echo "size=+1G, type=uefi, bootable"
+    echo "size=+${SWAP_SIZE}G, type=swap"
+    echo "type=linux"
+
+} | sfdisk /dev/$DISK
+
+sleep 1
 
 # Format Partitions
-mkfs.fat -F 32 /dev/$EFI
-mkswap /dev/$SWAP
-mkfs.btrfs -f /dev/$ROOT
+EFI="/dev/${DISK}1"
+SWAP="/dev/${DISK}2"
+ROOT="/dev/${DISK}3"
 
-# Mount ROOT and Creating SUBVOLUMES
-mount /dev/$ROOT /mnt
+mkfs.fat -F 32 $EFI
+mkswap $SWAP
+mkfs.btrfs -f $ROOT
+
+# Mount ROOT and Create SUBVOLUMES
+mount $ROOT /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@cache
@@ -38,26 +55,30 @@ btrfs subvolume create /mnt/@snapshots
 umount /mnt
 
 # Mounting Each SUBVOLUMES with ZSTD Compression
-mount -o compress=zstd:1,noatime,subvol=@ /dev/$ROOT /mnt
+mount -o compress=zstd:1,noatime,subvol=@ $ROOT /mnt
 
 mkdir /mnt/home
-mount -o compress=zstd:1,noatime,subvol=@home /dev/$ROOT /mnt/home
+mount -o compress=zstd:1,noatime,subvol=@home $ROOT /mnt/home
 
 mkdir -p /mnt/var/cache
-mount -o compress=zstd:1,noatime,subvol=@cache /dev/$ROOT /mnt/var/cache
+mount -o compress=zstd:1,noatime,subvol=@cache $ROOT /mnt/var/cache
 
 mkdir -p /mnt/var/log
-mount -o compress=zstd:1,noatime,subvol=@log /dev/$ROOT /mnt/var/log
+mount -o compress=zstd:1,noatime,subvol=@log $ROOT /mnt/var/log
 
 mkdir /mnt/.snapshots
-mount -o compress=zstd:1,noatime,subvol=@snapshots /dev/$ROOT /mnt/.snapshots
+mount -o compress=zstd:1,noatime,subvol=@snapshots $ROOT /mnt/.snapshots
 
 # Mounting EFI
 mkdir -p /mnt/boot/efi
-mount /dev/$EFI /mnt/boot/efi
+mount $EFI /mnt/boot/efi
 
 # SWAP ON
-swapon /dev/$SWAP
+swapon $SWAP
+
+####################
+### INSTALLATION ###
+####################
 
 # Pacman Conf
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
