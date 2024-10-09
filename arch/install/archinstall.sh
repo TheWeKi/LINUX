@@ -6,12 +6,6 @@
 
 loadkeys us
 
-read -p "Are You On HiDPI Monitor | (y / n) :    " FONT_SIZE
-
-if [ $FONT_SIZE == "y" ]; then
-    setfont ter-132n
-fi
-
 timedatectl set-timezone Asia/Kolkata
 timedatectl set-ntp true
 

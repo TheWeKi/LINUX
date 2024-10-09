@@ -3,15 +3,7 @@
 ## Pre Install
 
     setfont ter-132b # HiDPI Display
-
     iwctl --passphrase [password] station wlan0 connect [network]
-
-    cfdisk /dev/DISK 
-        GPT
-        
-        EFI   1GB
-        SWAP  16GB
-        ROOT  REMAINING
 
 ## Minimal Install
 
