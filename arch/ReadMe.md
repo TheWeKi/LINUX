@@ -21,6 +21,7 @@
 
 ## Tools
 
+    rustup default stable
     gh auth login
 
     curl -o apps.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/tools/apps.sh

@@ -17,7 +17,4 @@ systemctl enable docker.service
 groupadd docker
 usermod -aG docker $username
 
-# Rust Setup
-rustup default stable
-
 sleep 2
