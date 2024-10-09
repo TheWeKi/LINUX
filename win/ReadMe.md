@@ -138,8 +138,10 @@
 ### [ArchWSL Docs](https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/)
 
     1 Download Latest Arch.zip file
-    2 Follow Docs for Setup
-    
+    2 Unarchive the file and Paste Content to C:\Compilers\Arch
+    3 Follow Docs for Setup
+    4 Download Arch.png and Save it in C:\Compilers\Arch
+    5 Configure ArchWSL windows terminal profile with Arch.png
 
 [NvChad](https://nvchad.com/docs/quickstart/install/) - Open nvim in CMD for IDE
 
