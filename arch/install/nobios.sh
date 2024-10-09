@@ -92,10 +92,17 @@ mkdir /mnt/archinstall
 
 # Post Installation Scripts
 curl -s -o /mnt/archinstall/config.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/install/config.sh
+curl -s -o /mnt/archinstall/gnome.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/desktop/gnome.sh
+curl -s -o /mnt/archinstall/apps.sh https://raw.githubusercontent.com/theweki/os/refs/heads/main/arch/tools/apps.sh
+
 chmod +x /mnt/archinstall/config.sh
+chmod +x /mnt/archinstall/gnome.sh
+chmod +x /mnt/archinstall/apps.sh
 
 # Chroot and Execute Post Installation Scripts
 arch-chroot /mnt ./archinstall/config.sh
+arch-chroot /mnt ./archinstall/gnome.sh
+arch-chroot /mnt ./archinstall/apps.sh
 
 # Cleanup & Unmount
 rm -rf /mnt/archinstall
