@@ -3,14 +3,14 @@
 lsblk
 
 read -p "DISK   |   nvme0n1 / sda / vda :   " DISK
-read -p "SWAP SIZE  |   [2 - 16]" SWAP
+read -p "SWAP SIZE  |   [2 - 16]:   " SWAP
 
 {
-    echo "label: gpt"       # GPT Partition Table
+    echo "label: gpt"
 
-    echo "start=, size=+1G, type=uefi, bootable, name="
-    echo "start=, size=+${SWAP}G, type=swap, name="
-    echo "start=, size=, type=linux, name="
+    echo "size=+1G, type=uefi, bootable"
+    echo "size=+${SWAP}G, type=swap"
+    echo "type=linux"
 
 } | sfdisk /dev/$DISK
 
